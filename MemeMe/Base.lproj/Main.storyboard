@@ -52,12 +52,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="VmZ-Uy-zYZ" firstAttribute="top" secondItem="iXW-3U-LBH" secondAttribute="bottom" id="CEU-1c-Wqe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iXW-3U-LBH" secondAttribute="trailing" constant="-20" id="OlP-u7-0EY"/>
                             <constraint firstItem="FOR-eS-jR7" firstAttribute="leading" secondItem="pea-ES-Z8P" secondAttribute="leadingMargin" constant="-20" id="Pax-pD-1gY"/>
                             <constraint firstItem="f3H-l5-Jrh" firstAttribute="top" secondItem="FOR-eS-jR7" secondAttribute="bottom" id="Pqj-6e-Ehh"/>
+                            <constraint firstItem="FOR-eS-jR7" firstAttribute="top" secondItem="VmZ-Uy-zYZ" secondAttribute="bottom" id="SWZ-zN-ohD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FOR-eS-jR7" secondAttribute="trailing" constant="-20" id="tRD-oO-KEw"/>
+                            <constraint firstItem="VmZ-Uy-zYZ" firstAttribute="leading" secondItem="pea-ES-Z8P" secondAttribute="leadingMargin" constant="-20" id="wL0-fX-6xa"/>
                             <constraint firstItem="iXW-3U-LBH" firstAttribute="top" secondItem="KUp-gR-1n2" secondAttribute="bottom" constant="8" id="wvD-0x-0nE"/>
                             <constraint firstItem="iXW-3U-LBH" firstAttribute="leading" secondItem="pea-ES-Z8P" secondAttribute="leadingMargin" constant="-20" id="wyT-Lq-Hhb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VmZ-Uy-zYZ" secondAttribute="trailing" constant="-20" id="yRz-0q-Fb3"/>
                         </constraints>
                     </view>
                     <connections>
