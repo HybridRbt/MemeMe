@@ -20,6 +20,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func pickFromAlbum(sender: AnyObject) {
+        let imageViewController = UIImagePickerController()
+        self.presentViewController(imageViewController, animated: true, completion: nil)
+    
+    }
 
 }
 
