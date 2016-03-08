@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
@@ -22,8 +22,9 @@ class ViewController: UIViewController {
     }
 
     @IBAction func pickFromAlbum(sender: AnyObject) {
-        let imageViewController = UIImagePickerController()
-        self.presentViewController(imageViewController, animated: true, completion: nil)
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        self.presentViewController(imagePicker, animated: true, completion: nil)
     
     }
 
