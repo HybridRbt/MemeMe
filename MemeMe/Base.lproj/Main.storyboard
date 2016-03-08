@@ -9,7 +9,7 @@
         <!--View Controller-->
         <scene sceneID="py5-QO-aFG">
             <objects>
-                <viewController id="udy-PY-fqC" sceneMemberID="viewController">
+                <viewController id="udy-PY-fqC" customClass="ViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KUp-gR-1n2"/>
                         <viewControllerLayoutGuide type="bottom" id="f3H-l5-Jrh"/>
@@ -35,9 +35,15 @@
                                     <constraint firstAttribute="height" constant="44" id="PpG-Dy-YBP"/>
                                 </constraints>
                                 <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="0na-1K-C2a"/>
                                     <barButtonItem systemItem="camera" id="HPD-0m-2Jg"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="auf-GX-vD8"/>
-                                    <barButtonItem title="Album" id="JBP-hz-2zh"/>
+                                    <barButtonItem title="Album" id="JBP-hz-2zh">
+                                        <connections>
+                                            <action selector="pickFromAlbum:" destination="udy-PY-fqC" id="b3s-Ek-cwS"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="wyU-sT-IX8"/>
                                 </items>
                             </toolbar>
                         </subviews>
