@@ -8,7 +8,6 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -24,9 +23,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSStrokeWidthAttributeName : strokeWidthAttributeNumber
     ]
     
+    enum InitialText : String {
+        case Top = "TOP"
+        case Bottom = "BOTTOM"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        topTextField.text = InitialText.Top.rawValue
+        topTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.textAlignment = .Center
+        topTextField.delegate = self
+        
+        bottomTextField.text = InitialText.Bottom.rawValue
+        bottomTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.textAlignment = .Center
+
+        bottomTextField.delegate = self
+        
     }
 
     override func viewWillAppear(animated: Bool) {
