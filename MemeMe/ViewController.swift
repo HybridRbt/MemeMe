@@ -77,10 +77,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         dismissViewControllerAnimated(true, completion: nil)
     }
-//    
-//    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-//        <#code#>
-//    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
 
 }
 
