@@ -12,6 +12,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
+    static let strokeWidthAttributeNumber = NSNumber(double: 3.0)
+    
+    let memeTextAttributes = [
+        NSStrokeColorAttributeName : UIColor.blackColor(),
+        NSForegroundColorAttributeName : UIColor.blackColor(),
+        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSStrokeWidthAttributeName : strokeWidthAttributeNumber
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
