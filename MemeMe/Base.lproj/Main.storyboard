@@ -50,17 +50,41 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="wyU-sT-IX8"/>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VmZ-Uy-zYZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VmZ-Uy-zYZ">
                                 <rect key="frame" x="0.0" y="72" width="600" height="484"/>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i7l-hW-bOb">
+                                <rect key="frame" x="20" y="100" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="svA-Le-uYr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="del-Wv-8se">
+                                <rect key="frame" x="20" y="496" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="0Xc-vl-eTt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="del-Wv-8se" firstAttribute="top" secondItem="VmZ-Uy-zYZ" secondAttribute="bottom" constant="-60" id="5MK-iA-gFJ"/>
+                            <constraint firstItem="i7l-hW-bOb" firstAttribute="leading" secondItem="pea-ES-Z8P" secondAttribute="leadingMargin" id="61j-75-noF"/>
                             <constraint firstItem="VmZ-Uy-zYZ" firstAttribute="top" secondItem="iXW-3U-LBH" secondAttribute="bottom" id="CEU-1c-Wqe"/>
+                            <constraint firstItem="del-Wv-8se" firstAttribute="leading" secondItem="pea-ES-Z8P" secondAttribute="leadingMargin" id="IqX-lq-qFz"/>
+                            <constraint firstItem="del-Wv-8se" firstAttribute="centerX" secondItem="VmZ-Uy-zYZ" secondAttribute="centerX" id="Lra-Xd-akQ"/>
+                            <constraint firstItem="i7l-hW-bOb" firstAttribute="trailing" secondItem="pea-ES-Z8P" secondAttribute="trailingMargin" id="MyV-XH-aDD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iXW-3U-LBH" secondAttribute="trailing" constant="-20" id="OlP-u7-0EY"/>
                             <constraint firstItem="FOR-eS-jR7" firstAttribute="leading" secondItem="pea-ES-Z8P" secondAttribute="leadingMargin" constant="-20" id="Pax-pD-1gY"/>
                             <constraint firstItem="f3H-l5-Jrh" firstAttribute="top" secondItem="FOR-eS-jR7" secondAttribute="bottom" id="Pqj-6e-Ehh"/>
                             <constraint firstItem="FOR-eS-jR7" firstAttribute="top" secondItem="VmZ-Uy-zYZ" secondAttribute="bottom" id="SWZ-zN-ohD"/>
+                            <constraint firstItem="del-Wv-8se" firstAttribute="trailing" secondItem="pea-ES-Z8P" secondAttribute="trailingMargin" id="ZWs-CI-fKe"/>
+                            <constraint firstItem="VmZ-Uy-zYZ" firstAttribute="top" secondItem="i7l-hW-bOb" secondAttribute="bottom" constant="-58" id="fUc-QG-czu"/>
+                            <constraint firstItem="i7l-hW-bOb" firstAttribute="centerX" secondItem="VmZ-Uy-zYZ" secondAttribute="centerX" id="gjj-0h-dTi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FOR-eS-jR7" secondAttribute="trailing" constant="-20" id="tRD-oO-KEw"/>
                             <constraint firstItem="VmZ-Uy-zYZ" firstAttribute="leading" secondItem="pea-ES-Z8P" secondAttribute="leadingMargin" constant="-20" id="wL0-fX-6xa"/>
                             <constraint firstItem="iXW-3U-LBH" firstAttribute="top" secondItem="KUp-gR-1n2" secondAttribute="bottom" constant="8" id="wvD-0x-0nE"/>
@@ -69,8 +93,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomTextField" destination="del-Wv-8se" id="9bx-XE-WsE"/>
                         <outlet property="cameraButton" destination="HPD-0m-2Jg" id="oZi-xx-tZN"/>
                         <outlet property="imageView" destination="VmZ-Uy-zYZ" id="Evg-G8-i71"/>
+                        <outlet property="topTextField" destination="i7l-hW-bOb" id="ebh-i6-1EM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ern-R1-eMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
