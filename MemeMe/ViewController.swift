@@ -82,6 +82,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    func textFieldDidBeginEditing(textField: UITextField) {
+        switch textField.text {
+        case InitialText.Top.rawValue?, InitialText.Bottom.rawValue?:
+            textField.text = ""
+        default: break
+        }
+    }
 
 }
 
