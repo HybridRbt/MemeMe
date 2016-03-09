@@ -36,7 +36,11 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="0na-1K-C2a"/>
-                                    <barButtonItem systemItem="camera" id="HPD-0m-2Jg"/>
+                                    <barButtonItem systemItem="camera" id="HPD-0m-2Jg">
+                                        <connections>
+                                            <action selector="pickFromCamera:" destination="udy-PY-fqC" id="KOW-d5-3f4"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="auf-GX-vD8"/>
                                     <barButtonItem title="Album" id="JBP-hz-2zh">
                                         <connections>
@@ -65,6 +69,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cameraButton" destination="HPD-0m-2Jg" id="oZi-xx-tZN"/>
                         <outlet property="imageView" destination="VmZ-Uy-zYZ" id="Evg-G8-i71"/>
                     </connections>
                 </viewController>
