@@ -115,6 +115,7 @@
                         <outlet property="bottomToolbar" destination="FOR-eS-jR7" id="7qb-Ul-cnE"/>
                         <outlet property="cameraButton" destination="HPD-0m-2Jg" id="oZi-xx-tZN"/>
                         <outlet property="imageView" destination="VmZ-Uy-zYZ" id="Evg-G8-i71"/>
+                        <outlet property="shareButton" destination="vlA-Hn-WIr" id="mYW-nZ-mpw"/>
                         <outlet property="topTextField" destination="i7l-hW-bOb" id="ebh-i6-1EM"/>
                     </connections>
                 </viewController>
