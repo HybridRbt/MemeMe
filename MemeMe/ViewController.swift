@@ -96,6 +96,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         pickImage(source)
     }
 
+    
+    @IBAction func cancelButtonTapped(sender: AnyObject) {
+        //clear input in text fields and restore to default
+        resetTextFields()
+        
+        //dismiss keyboard
+        UIApplication.sharedApplication().sendAction("resignFirstResponder", to: nil, from: nil, forEvent: nil)
+        
+        //clear image
+        self.imageView.image = nil
+    }
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.imageView.image = image
