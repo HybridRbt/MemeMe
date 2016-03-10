@@ -39,8 +39,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         case Bottom = "BOTTOM"
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func resetTextFields() {
         topTextField.defaultTextAttributes = memeTextAttributes
         topTextField.textAlignment = .Center
         topTextField.text = InitialText.Top.rawValue
@@ -50,7 +49,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomTextField.textAlignment = .Center
         bottomTextField.text = InitialText.Bottom.rawValue
         bottomTextField.delegate = self
-        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        resetTextFields()
     }
 
     override func viewWillAppear(animated: Bool) {
