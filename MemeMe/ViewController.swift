@@ -13,6 +13,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var bottomToolbar: UIToolbar!
 
     static let strokeWidthAttributeNumber = NSNumber(double: 0.0)
     
