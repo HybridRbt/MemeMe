@@ -185,8 +185,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func toggleNavbarAndToolBar(hide: Bool) {
         // If hide == true then hide both bars
         self.navigationController?.navigationBarHidden = hide
-        self.navigationController?.toolbar.hidden = hide
-        self.bottomToolbar.hidden = true
+        self.bottomToolbar.hidden = hide
     }
 }
 
