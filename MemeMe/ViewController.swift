@@ -25,6 +25,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         var memedImage: UIImage?
     }
     
+    var savedMeme = Meme(topTextString: InitialText.Top.rawValue, bottomTextString: InitialText.Bottom.rawValue, originalImage: nil, memedImage: nil)
+    
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
         NSForegroundColorAttributeName : UIColor.whiteColor(),
