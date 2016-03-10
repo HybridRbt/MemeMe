@@ -163,12 +163,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func generateMemedImage() -> UIImage {
+        toggleNavbarAndToolBar(true)
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        toggleNavbarAndToolBar(false)
         return memedImage
+    }
+    
+    func toggleNavbarAndToolBar(hide: Bool) {
+        // If hide == true then hide both bars
+        self.navigationController?.navigationBarHidden = hide
+        self.navigationController?.toolbar.hidden = hide
+        self.bottomToolbar.hidden = true
     }
 }
 
