@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -100,15 +99,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="smv-lo-M24">
-                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="vlA-Hn-WIr"/>
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="cancel" id="tAc-0z-iSk"/>
-                            <barButtonItem systemItem="save" id="XiY-ab-WuD">
-                                <connections>
-                                    <action selector="saveMeme:" destination="udy-PY-fqC" id="fKb-pQ-ekc"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="vlA-Hn-WIr">
+                            <connections>
+                                <action selector="shareButtonTapped:" destination="udy-PY-fqC" id="oKY-1S-Q5W"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="tAc-0z-iSk">
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="udy-PY-fqC" id="cHy-xk-FJt"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bottomTextField" destination="del-Wv-8se" id="9bx-XE-WsE"/>
