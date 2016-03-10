@@ -30,15 +30,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topTextField.text = InitialText.Top.rawValue
         topTextField.defaultTextAttributes = memeTextAttributes
         topTextField.textAlignment = .Center
+        topTextField.text = InitialText.Top.rawValue
         topTextField.delegate = self
         
-        bottomTextField.text = InitialText.Bottom.rawValue
         bottomTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.textAlignment = .Center
-
+        bottomTextField.text = InitialText.Bottom.rawValue
         bottomTextField.delegate = self
         
     }
