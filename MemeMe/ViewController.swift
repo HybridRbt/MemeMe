@@ -14,6 +14,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var bottomToolbar: UIToolbar!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
 
     static let strokeWidthAttributeNumber = NSNumber(double: 0.0)
     
@@ -55,6 +56,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let isCameraAvailable = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         cameraButton.enabled = isCameraAvailable
         subscribeToKeyboardNotifications()
+        if self.imageView.image != nil {
+            shareButton.enabled = true
+        } else {
+            shareButton.enabled = false
+        }
         
     }
     
