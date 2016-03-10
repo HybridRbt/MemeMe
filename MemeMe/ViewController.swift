@@ -16,8 +16,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var bottomToolbar: UIToolbar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
 
-    //set to any number greater than 0 will result in a halo effect on the text
-    static let strokeWidthAttributeNumber = NSNumber(double: 0.0)
+    //need to set to number less than 0. set to any number greater than 0 will result in a halo effect on the text
+    static let strokeWidthAttributeNumber = NSNumber(double: -2.0)
     
     struct Meme {
         var topTextString : String
