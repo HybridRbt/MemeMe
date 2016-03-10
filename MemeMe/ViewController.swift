@@ -96,6 +96,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         pickImage(source)
     }
 
+    @IBAction func shareButtonTapped(sender: AnyObject) {
+        let memedImage = generateMemedImage()
+        let shareActivityViewController = UIActivityViewController(activityItems:[memedImage], applicationActivities: nil)
+        self.presentViewController(shareActivityViewController, animated: true, completion: save)
+    }
     
     @IBAction func cancelButtonTapped(sender: AnyObject) {
         //clear input in text fields and restore to default
