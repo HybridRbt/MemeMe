@@ -16,6 +16,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var bottomToolbar: UIToolbar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
 
+    //set to any number greater than 0 will result in a halo effect on the text
     static let strokeWidthAttributeNumber = NSNumber(double: 0.0)
     
     struct Meme {
@@ -39,18 +40,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         case Bottom = "BOTTOM"
     }
     
-    func resetTextFields() {
-        topTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.textAlignment = .Center
-        topTextField.text = InitialText.Top.rawValue
-        topTextField.delegate = self
-        
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.textAlignment = .Center
-        bottomTextField.text = InitialText.Bottom.rawValue
-        bottomTextField.delegate = self
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         resetTextFields()
@@ -58,15 +47,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        //enable/disable camera button
         let isCameraAvailable = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         cameraButton.enabled = isCameraAvailable
-        subscribeToKeyboardNotifications()
+        
+        //enable/disable share button
         if self.imageView.image != nil {
             shareButton.enabled = true
         } else {
             shareButton.enabled = false
         }
         
+        subscribeToKeyboardNotifications()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -77,13 +70,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    func pickImage(source: UIImagePickerControllerSourceType) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = source
-        self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func pickFromAlbum(sender: AnyObject) {
@@ -99,6 +85,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func shareButtonTapped(sender: AnyObject) {
         let memedImage = generateMemedImage()
         let shareActivityViewController = UIActivityViewController(activityItems:[memedImage], applicationActivities: nil)
+        
         self.presentViewController(shareActivityViewController, animated: true, completion: save)
     }
     
@@ -106,11 +93,30 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //clear input in text fields and restore to default
         resetTextFields()
         
-        //dismiss keyboard
+        //another way to dismiss keyboard
         UIApplication.sharedApplication().sendAction("resignFirstResponder", to: nil, from: nil, forEvent: nil)
         
         //clear image
         self.imageView.image = nil
+    }
+    
+    func resetTextFields() {
+        topTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.textAlignment = .Center
+        topTextField.text = InitialText.Top.rawValue
+        topTextField.delegate = self
+        
+        bottomTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.textAlignment = .Center
+        bottomTextField.text = InitialText.Bottom.rawValue
+        bottomTextField.delegate = self
+    }
+    
+    func pickImage(source: UIImagePickerControllerSourceType) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = source
+        self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
@@ -127,6 +133,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func textFieldDidBeginEditing(textField: UITextField) {
         switch textField.text {
+        //clears the text only if it's showing the default one
         case InitialText.Top.rawValue?, InitialText.Bottom.rawValue?:
             textField.text = ""
         default: break
@@ -134,6 +141,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        //one way to dismiss the keyboard
         textField.resignFirstResponder()
         return true
     }
