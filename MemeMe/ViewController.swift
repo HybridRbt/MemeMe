@@ -16,6 +16,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     static let strokeWidthAttributeNumber = NSNumber(double: 0.0)
     
+    struct Meme {
+        var topTextString : String
+        var bottomTextString: String
+        var originalImage: UIImage?
+        var memedImage: UIImage?
+    }
+    
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
         NSForegroundColorAttributeName : UIColor.whiteColor(),
