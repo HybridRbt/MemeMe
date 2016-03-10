@@ -144,17 +144,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return keyboardHeight
     }
     
-    
-    func save() -> Meme {
+    func save() {
         //Create the meme
         let topText = self.topTextField.text
         let bottomText = self.bottomTextField.text
         let oriImg = self.imageView.image
         
         let memeImg = generateMemedImage()
-        let meme = Meme(topTextString: topText!, bottomTextString: bottomText!, originalImage: oriImg, memedImage: memeImg)
-        
-        return meme
+        self.savedMeme = Meme(topTextString: topText!, bottomTextString: bottomText!, originalImage: oriImg, memedImage: memeImg)
     }
     
     func generateMemedImage() -> UIImage {
