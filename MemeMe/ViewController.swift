@@ -136,5 +136,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let keyboardHeight = keyboardSize.CGRectValue().height
         return keyboardHeight
     }
+    
+    func save() {
+        //Create the meme
+        let topText = self.topTextField.text
+        let bottomText = self.bottomTextField.text
+        let oriImg = self.imageView.image
+        let memeImg = generateMemedImage()
+        let meme = Meme(topTextString: topText, bottomTextString: bottomText, originalImage: oriImg, memedImage: memeImg)
+    }
+    
+    func generateMemedImage() -> UIImage {
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return memedImage
+    }
 }
 
