@@ -144,17 +144,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return keyboardHeight
     }
     
-    //for testing save func
-    @IBAction func saveMeme(sender: AnyObject) {
-        let meme = save()
-        
-        //set img view to show the meme
-        self.imageView.image = meme.memedImage
-        
-        //hide top and bottom text fields
-        self.topTextField.hidden = true
-        self.bottomTextField.hidden = true
-    }
     
     func save() -> Meme {
         //Create the meme
