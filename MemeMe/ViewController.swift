@@ -149,12 +149,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.topTextField.hidden = true
         self.bottomTextField.hidden = true
     }
+    
+    func save() -> Meme {
         //Create the meme
         let topText = self.topTextField.text
         let bottomText = self.bottomTextField.text
         let oriImg = self.imageView.image
+        
         let memeImg = generateMemedImage()
-        let meme = Meme(topTextString: topText, bottomTextString: bottomText, originalImage: oriImg, memedImage: memeImg)
+        let meme = Meme(topTextString: topText!, bottomTextString: bottomText!, originalImage: oriImg, memedImage: memeImg)
+        
+        return meme
     }
     
     func generateMemedImage() -> UIImage {
