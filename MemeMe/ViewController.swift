@@ -79,7 +79,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let memedImage = generateMemedImage()
         let shareActivityViewController = UIActivityViewController(activityItems:[memedImage], applicationActivities: nil)
         
-        self.presentViewController(shareActivityViewController, animated: true, completion: save)
+        shareActivityViewController.completionWithItemsHandler = {
+            (activity, success, items, error) in
+            if success {
+                self.save()
+                shareActivityViewController.dismissViewControllerAnimated(true, completion: nil)
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+        }
+        
+        self.presentViewController(shareActivityViewController, animated: true, completion: nil)
     }
     
     @IBAction func cancelButtonTapped(sender: AnyObject) {
