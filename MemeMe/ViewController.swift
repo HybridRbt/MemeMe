@@ -19,13 +19,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     //need to set to number less than 0. set to any number greater than 0 will result in a halo effect on the text
     static let strokeWidthAttributeNumber = NSNumber(double: -2.0)
     
-    struct Meme {
-        var topTextString : String
-        var bottomTextString: String
-        var originalImage: UIImage?
-        var memedImage: UIImage?
-    }
-    
     var savedMeme = Meme(topTextString: InitialText.Top.rawValue, bottomTextString: InitialText.Bottom.rawValue, originalImage: nil, memedImage: nil)
     
     let memeTextAttributes = [
@@ -86,7 +79,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let memedImage = generateMemedImage()
         let shareActivityViewController = UIActivityViewController(activityItems:[memedImage], applicationActivities: nil)
         
-        self.presentViewController(shareActivityViewController, animated: true, completion: save)
+        shareActivityViewController.completionWithItemsHandler = {
+            (activity, success, items, error) in
+            if success {
+                self.save()
+                shareActivityViewController.dismissViewControllerAnimated(true, completion: nil)
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+        }
+        
+        self.presentViewController(shareActivityViewController, animated: true, completion: nil)
     }
     
     @IBAction func cancelButtonTapped(sender: AnyObject) {
@@ -160,11 +162,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        view.frame.origin.y -= getKeyboardHeight(notification)
+        if bottomTextField.isFirstResponder() {
+            view.frame.origin.y = getKeyboardHeight(notification) * (-1)
+        }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        view.frame.origin.y += getKeyboardHeight(notification)
+        if bottomTextField.isFirstResponder() {
+            view.frame.origin.y = 0
+        }
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
