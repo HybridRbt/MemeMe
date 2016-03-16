@@ -83,8 +83,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             (activity, success, items, error) in
             if success {
                 self.save()
-                shareActivityViewController.dismissViewControllerAnimated(true, completion: nil)
-                self.dismissViewControllerAnimated(true, completion: nil)
+                //shareActivityViewController.dismissViewControllerAnimated(true, completion: nil)
+                //self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
         
