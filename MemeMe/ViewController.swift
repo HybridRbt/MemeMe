@@ -15,6 +15,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var bottomToolbar: UIToolbar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        resetTextFields()
+    }
 
     //need to set to number less than 0. set to any number greater than 0 will result in a halo effect on the text
     static let strokeWidthAttributeNumber = NSNumber(double: -2.0)
@@ -26,16 +31,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSStrokeWidthAttributeName : strokeWidthAttributeNumber
     ]
     
-    enum InitialText : String {
-        case Top = "TOP"
-        case Bottom = "BOTTOM"
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        resetTextFields()
-    }
-
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -103,12 +98,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func resetTextFields() {
         topTextField.defaultTextAttributes = memeTextAttributes
         topTextField.textAlignment = .Center
-        topTextField.text = InitialText.Top.rawValue
+        topTextField.text = Meme.InitialText.Top.rawValue
         topTextField.delegate = self
         
         bottomTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.textAlignment = .Center
-        bottomTextField.text = InitialText.Bottom.rawValue
+        bottomTextField.text = Meme.InitialText.Bottom.rawValue
         bottomTextField.delegate = self
     }
     
@@ -134,7 +129,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func textFieldDidBeginEditing(textField: UITextField) {
         switch textField.text {
         //clears the text only if it's showing the default one
-        case InitialText.Top.rawValue?, InitialText.Bottom.rawValue?:
+        case Meme.InitialText.Top.rawValue?, Meme.InitialText.Bottom.rawValue?:
             textField.text = ""
         default: break
         }
