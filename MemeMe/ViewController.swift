@@ -19,7 +19,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     //need to set to number less than 0. set to any number greater than 0 will result in a halo effect on the text
     static let strokeWidthAttributeNumber = NSNumber(double: -2.0)
     
-    var savedMeme = Meme(topTextString: InitialText.Top.rawValue, bottomTextString: InitialText.Bottom.rawValue, originalImage: nil, memedImage: nil)
+    //var savedMeme = Meme(topTextString: InitialText.Top.rawValue, bottomTextString: InitialText.Bottom.rawValue, originalImage: nil, memedImage: nil)
     
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
