@@ -58,6 +58,22 @@ class SentMemesTableViewController: UITableViewController {
         customMeme.meme = memes[indexPath.row]
         self.navigationController!.pushViewController(customMeme, animated: true)
     }
+    
+    //methods to implement swipe to delete function
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        //check editing style 
+        if editingStyle == .Delete {
+            // delete data from the array in AppDelegate
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.memes.removeAtIndex(indexPath.row)
+            // refresh table view
+            tableView.reloadData()
+        }
+    }
 }
 
 
