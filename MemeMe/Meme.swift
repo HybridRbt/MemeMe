@@ -14,4 +14,9 @@ struct Meme {
     var bottomTextString: String
     var originalImage: UIImage?
     var memedImage: UIImage?
+    
+    enum InitialText : String {
+        case Top = "TOP"
+        case Bottom = "BOTTOM"
+    }
 }

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  EditorViewController.swift
 //  MemeMe
 //
 //  Created by Jianfeng Yang on 3/7/16.
@@ -8,18 +8,21 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class EditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var bottomToolbar: UIToolbar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        resetTextFields()
+    }
 
     //need to set to number less than 0. set to any number greater than 0 will result in a halo effect on the text
     static let strokeWidthAttributeNumber = NSNumber(double: -2.0)
-    
-    var savedMeme = Meme(topTextString: InitialText.Top.rawValue, bottomTextString: InitialText.Bottom.rawValue, originalImage: nil, memedImage: nil)
     
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
@@ -28,16 +31,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSStrokeWidthAttributeName : strokeWidthAttributeNumber
     ]
     
-    enum InitialText : String {
-        case Top = "TOP"
-        case Bottom = "BOTTOM"
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        resetTextFields()
-    }
-
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -84,7 +77,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             if success {
                 self.save()
                 //shareActivityViewController.dismissViewControllerAnimated(true, completion: nil)
-                //self.dismissViewControllerAnimated(true, completion: nil)
+                self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
         
@@ -96,21 +89,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         resetTextFields()
         
         //another way to dismiss keyboard
-        UIApplication.sharedApplication().sendAction("resignFirstResponder", to: nil, from: nil, forEvent: nil)
+        UIApplication.sharedApplication().sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, forEvent: nil)
         
         //clear image
         imageView.image = nil
+        
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func resetTextFields() {
         topTextField.defaultTextAttributes = memeTextAttributes
         topTextField.textAlignment = .Center
-        topTextField.text = InitialText.Top.rawValue
+        topTextField.text = Meme.InitialText.Top.rawValue
         topTextField.delegate = self
         
         bottomTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.textAlignment = .Center
-        bottomTextField.text = InitialText.Bottom.rawValue
+        bottomTextField.text = Meme.InitialText.Bottom.rawValue
         bottomTextField.delegate = self
     }
     
@@ -136,7 +131,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func textFieldDidBeginEditing(textField: UITextField) {
         switch textField.text {
         //clears the text only if it's showing the default one
-        case InitialText.Top.rawValue?, InitialText.Bottom.rawValue?:
+        case Meme.InitialText.Top.rawValue?, Meme.InitialText.Bottom.rawValue?:
             textField.text = ""
         default: break
         }
@@ -150,10 +145,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func subscribeToKeyboardNotifications() {
         //sub to kb will show notification
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(EditorViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         
         //sub to kb will hide notification
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(EditorViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func unsubscribeToKeyboardNotifications() {
@@ -187,7 +182,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let oriImg = self.imageView.image
         
         let memeImg = generateMemedImage()
-        self.savedMeme = Meme(topTextString: topText!, bottomTextString: bottomText!, originalImage: oriImg, memedImage: memeImg)
+        let savedMeme = Meme(topTextString: topText!, bottomTextString: bottomText!, originalImage: oriImg, memedImage: memeImg)
+        
+        //save to AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.memes.append(savedMeme)
     }
     
     func generateMemedImage() -> UIImage {
