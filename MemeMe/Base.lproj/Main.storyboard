@@ -58,7 +58,7 @@
             </objects>
             <point key="canvasLocation" x="-1340" y="-729"/>
         </scene>
-        <!--Sent Meme Collections View Controller-->
+        <!--Sent Memes-->
         <scene sceneID="wDd-Iy-OIu">
             <objects>
                 <collectionViewController id="46e-Mz-woB" customClass="SentMemeCollectionsViewController" customModule="MemeMe" sceneMemberID="viewController">
@@ -102,7 +102,7 @@
                             <outlet property="delegate" destination="46e-Mz-woB" id="59B-dq-x1B"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="BZv-cr-EFg">
+                    <navigationItem key="navigationItem" title="Sent Memes" id="BZv-cr-EFg">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="KED-tB-kwR"/>
                     </navigationItem>
                     <connections>
@@ -283,7 +283,7 @@
                             <outlet property="delegate" destination="QUd-uL-aVF" id="ND9-uR-jfA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="CnB-ld-vIb">
+                    <navigationItem key="navigationItem" title="Sent Memes" id="CnB-ld-vIb">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xjf-xJ-3yX">
                             <connections>
                                 <action selector="addButtonTapped:" destination="QUd-uL-aVF" id="un6-xD-WOK"/>
