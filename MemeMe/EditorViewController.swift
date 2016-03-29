@@ -77,7 +77,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
             if success {
                 self.save()
                 //shareActivityViewController.dismissViewControllerAnimated(true, completion: nil)
-                //self.dismissViewControllerAnimated(true, completion: nil)
+                self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
         
@@ -93,6 +93,8 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         //clear image
         imageView.image = nil
+        
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func resetTextFields() {
