@@ -6,11 +6,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Table View-->
         <scene sceneID="goq-6q-ghH">
             <objects>
                 <navigationController id="3Os-vD-TaZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="gQD-e5-YDR"/>
+                    <tabBarItem key="tabBarItem" title="Table View" image="TableView" id="gQD-e5-YDR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xfs-W5-LJg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -41,11 +41,11 @@
             </objects>
             <point key="canvasLocation" x="-2198" y="-429"/>
         </scene>
-        <!--Item-->
+        <!--Collection View-->
         <scene sceneID="Y60-OZ-qvb">
             <objects>
                 <navigationController id="oP7-fu-tNX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Sw3-UI-7pN"/>
+                    <tabBarItem key="tabBarItem" title="Collection View" image="CollectionView" id="Sw3-UI-7pN"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pna-5h-40r">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -295,4 +295,8 @@
             <point key="canvasLocation" x="-642" y="7"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="CollectionView" width="30" height="30"/>
+        <image name="TableView" width="30" height="30"/>
+    </resources>
 </document>
