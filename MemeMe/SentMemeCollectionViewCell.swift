@@ -7,3 +7,10 @@
 //
 
 import Foundation
+import UIKit
+
+class SentMemeCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak var memedImage: UIImageView!
+    
+}
