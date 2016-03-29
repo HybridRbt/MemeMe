@@ -46,7 +46,7 @@ class SentMemesTableViewController: UITableViewController {
         
         // If the cell has a detail label, we will put the evil scheme in.
         if let detailTextLabel = cell.detailTextLabel {
-            detailTextLabel.text = meme.topTextString + meme.bottomTextString
+            detailTextLabel.text = meme.topTextString + " " + meme.bottomTextString
         }
         
         return cell
