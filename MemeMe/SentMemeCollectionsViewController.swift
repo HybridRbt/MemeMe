@@ -33,7 +33,6 @@ class SentMemeCollectionsViewController: UICollectionViewController {
         flowLayout.itemSize = CGSizeMake(dimension, dimension)
     }
     
-    // Collection View Data Source
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return memes.count
     }
@@ -43,11 +42,7 @@ class SentMemeCollectionsViewController: UICollectionViewController {
         let meme = memes[indexPath.row]
         
         // Set image to be the memed image
-        cell.memedImage.image = meme.memedImage 
-        // If the cell has a detail label, we will put the evil scheme in.
-//        if let detailTextLabel = cell.detailTextLabel {
-//            detailTextLabel.text = meme.topTextString + meme.bottomTextString
-//        }
+        cell.memedImage.image = meme.memedImage
         
         return cell
     }

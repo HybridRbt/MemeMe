@@ -29,7 +29,6 @@ class SentMemesTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    // Table View Data Source
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return memes.count
     }
