@@ -252,13 +252,20 @@
                             <constraint firstItem="G8q-GJ-lXE" firstAttribute="top" secondItem="vpe-rV-xQY" secondAttribute="bottom" id="zHB-Iv-uRM"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="3PI-bk-sWd">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="6Bx-LY-qrb">
+                            <connections>
+                                <action selector="editButtonTapped:" destination="UEB-qQ-lGi" id="RMn-sn-WWg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="memedImage" destination="vpe-rV-xQY" id="49c-Il-Ekj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cfO-EO-4Sk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="26" y="668"/>
+            <point key="canvasLocation" x="26" y="674"/>
         </scene>
         <!--SentMemesTableViewController-->
         <scene sceneID="I03-ee-L1a">
