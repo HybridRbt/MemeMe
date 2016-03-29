@@ -9,18 +9,18 @@
 import Foundation
 import UIKit
 
-class SentMemesTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SentMemesTableViewController: UITableViewController {
     // Get the Mems from the appDelegate for the table
     var memes: [Meme] {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
     
     // Table View Data Source
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return memes.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("SentMemeCell")!
         let meme = memes[indexPath.row]
@@ -39,7 +39,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDelegate, UITab
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let customMeme = self.storyboard!.instantiateViewControllerWithIdentifier("CustomMemeViewController") as! CustomMemeViewController
         customMeme.meme = memes[indexPath.row]
