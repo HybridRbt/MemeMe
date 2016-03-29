@@ -6,11 +6,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Table View-->
         <scene sceneID="goq-6q-ghH">
             <objects>
                 <navigationController id="3Os-vD-TaZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="gQD-e5-YDR"/>
+                    <tabBarItem key="tabBarItem" title="Table View" image="TableView" id="gQD-e5-YDR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xfs-W5-LJg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -41,11 +41,11 @@
             </objects>
             <point key="canvasLocation" x="-2198" y="-429"/>
         </scene>
-        <!--Item-->
+        <!--Collection View-->
         <scene sceneID="Y60-OZ-qvb">
             <objects>
                 <navigationController id="oP7-fu-tNX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Sw3-UI-7pN"/>
+                    <tabBarItem key="tabBarItem" title="Collection View" image="CollectionView" id="Sw3-UI-7pN"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pna-5h-40r">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -58,7 +58,7 @@
             </objects>
             <point key="canvasLocation" x="-1340" y="-729"/>
         </scene>
-        <!--Sent Meme Collections View Controller-->
+        <!--Sent Memes-->
         <scene sceneID="wDd-Iy-OIu">
             <objects>
                 <collectionViewController id="46e-Mz-woB" customClass="SentMemeCollectionsViewController" customModule="MemeMe" sceneMemberID="viewController">
@@ -102,7 +102,7 @@
                             <outlet property="delegate" destination="46e-Mz-woB" id="59B-dq-x1B"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="BZv-cr-EFg">
+                    <navigationItem key="navigationItem" title="Sent Memes" id="BZv-cr-EFg">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="KED-tB-kwR"/>
                     </navigationItem>
                     <connections>
@@ -148,6 +148,7 @@
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VmZ-Uy-zYZ">
                                 <rect key="frame" x="0.0" y="59" width="600" height="497"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             </imageView>
                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="del-Wv-8se">
                                 <rect key="frame" x="20" y="506" width="560" height="40"/>
@@ -165,7 +166,7 @@
                                 </constraints>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <navigationItem title="Title" id="eb4-vt-HOi">
+                                    <navigationItem title="New Meme" id="eb4-vt-HOi">
                                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="vlA-Hn-WIr">
                                             <connections>
                                                 <action selector="shareButtonTapped:" destination="udy-PY-fqC" id="oKY-1S-Q5W"/>
@@ -227,10 +228,10 @@
             </objects>
             <point key="canvasLocation" x="26" y="7"/>
         </scene>
-        <!--Meme-->
+        <!--Custom Meme View Controller-->
         <scene sceneID="pAt-T4-eP9">
             <objects>
-                <viewController storyboardIdentifier="CustomMemeViewController" title="Meme" id="UEB-qQ-lGi" customClass="CustomMemeViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CustomMemeViewController" id="UEB-qQ-lGi" customClass="CustomMemeViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xk4-9e-yPo"/>
                         <viewControllerLayoutGuide type="bottom" id="G8q-GJ-lXE"/>
@@ -282,7 +283,7 @@
                             <outlet property="delegate" destination="QUd-uL-aVF" id="ND9-uR-jfA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="CnB-ld-vIb">
+                    <navigationItem key="navigationItem" title="Sent Memes" id="CnB-ld-vIb">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xjf-xJ-3yX">
                             <connections>
                                 <action selector="addButtonTapped:" destination="QUd-uL-aVF" id="un6-xD-WOK"/>
@@ -295,4 +296,8 @@
             <point key="canvasLocation" x="-642" y="7"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="CollectionView" width="30" height="30"/>
+        <image name="TableView" width="30" height="30"/>
+    </resources>
 </document>
