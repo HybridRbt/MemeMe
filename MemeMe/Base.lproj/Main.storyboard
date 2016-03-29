@@ -165,7 +165,7 @@
                                 </constraints>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <navigationItem title="Title" id="eb4-vt-HOi">
+                                    <navigationItem title="New Meme" id="eb4-vt-HOi">
                                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="vlA-Hn-WIr">
                                             <connections>
                                                 <action selector="shareButtonTapped:" destination="udy-PY-fqC" id="oKY-1S-Q5W"/>
