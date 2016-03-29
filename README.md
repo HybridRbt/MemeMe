@@ -15,6 +15,8 @@ After an image is chosen, the image picker is dismissed, allowing text to be ent
 When the user presses the “Cancel” button, the Meme Editor View returns to its launch state, displaying no image and default text.
 When the user presses the share button, Apple’s stock Activity View appears, displaying several options for sharing the meme. After an option is chosen, the Activity View is dismissed and the Meme Editor View is visible again.
 
+#### [Grading Rubric P2.1]
+
 #### App Spec for P2.2
 [Full Description P2.2]
 
@@ -53,6 +55,10 @@ When the user presses the share button, Apple’s stock Activity View appears, d
 
 Selecting a meme from the table or collection presents the Meme Detail View. Clicking on the  back arrow of the Meme Detail View presents the previous Sent Memes View, either the table or collection.  
 
+#### [Grading Rubric P2.2]
+
 [Full Description P2.1]: <https://docs.google.com/document/d/1bt-SoB1GgqLebcT2mtE6hglkByzlxrobR5eHFMGPcTg/pub?embedded=true>
 [Full Description P2.2]:
 <https://docs.google.com/document/d/1G2onkzN_weWmiYErhQJw1lB9-zxM-2TQ0N5bNMAaI7I/pub?embedded=true>
+[Grading Rubric P2.1]: <https://docs.google.com/document/d/1IcagLTEjCHMGMsLcroOWtNtXnIL0ySkAk8R2XfKk2t0/pub?embedded=true>
+[Grading Rubric P2.2]: <https://docs.google.com/document/d/1ni0X5sjS0NreQqBHJpg8Z0foAYwegfGTPPdBKTPskPI/pub?embedded=true>
