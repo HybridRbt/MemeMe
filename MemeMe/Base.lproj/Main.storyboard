@@ -103,7 +103,11 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Sent Memes" id="BZv-cr-EFg">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KED-tB-kwR"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KED-tB-kwR">
+                            <connections>
+                                <segue destination="IRU-PD-tgo" kind="show" id="Mb9-3M-EVL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="flowLayout" destination="523-QX-uYY" id="PwF-E5-qIB"/>
@@ -329,4 +333,7 @@
         <image name="CollectionView" width="30" height="30"/>
         <image name="TableView" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Mb9-3M-EVL"/>
+    </inferredMetricsTieBreakers>
 </document>
