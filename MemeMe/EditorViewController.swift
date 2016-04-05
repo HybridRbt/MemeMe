@@ -46,7 +46,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         cameraButton.enabled = isCameraAvailable
         
         //enable/disable share button
-        if self.imageView.image != nil {
+        if imageView.image != nil {
             shareButton.enabled = true
         } else {
             shareButton.enabled = false
@@ -89,7 +89,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
             }
         }
         
-        self.presentViewController(shareActivityViewController, animated: true, completion: nil)
+        presentViewController(shareActivityViewController, animated: true, completion: nil)
     }
     
     @IBAction func cancelButtonTapped(sender: AnyObject) {
@@ -195,9 +195,9 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func save() {
         //Create the meme
-        let topText = self.topTextField.text
-        let bottomText = self.bottomTextField.text
-        let oriImg = self.imageView.image
+        let topText = topTextField.text
+        let bottomText = bottomTextField.text
+        let oriImg = imageView.image
         
         let memeImg = generateMemedImage()
         let savedMeme = Meme(topTextString: topText!, bottomTextString: bottomText!, originalImage: oriImg, memedImage: memeImg)
@@ -211,8 +211,8 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         resignFirstResponder()
         toggleNavbarAndToolBar(true)
         // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         toggleNavbarAndToolBar(false)
@@ -221,8 +221,8 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func toggleNavbarAndToolBar(hide: Bool) {
         // If hide == true then hide both bars
-        self.navigationController?.navigationBarHidden = hide
-        self.bottomToolbar.hidden = hide
+        navigationController?.navigationBarHidden = hide
+        bottomToolbar.hidden = hide
     }
 }
 

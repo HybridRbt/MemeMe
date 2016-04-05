@@ -16,7 +16,7 @@ class CustomMemeViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.memedImage.image = meme.memedImage
+        memedImage.image = meme.memedImage
     }
     
     @IBAction func editButtonTapped(sender: AnyObject) {
@@ -29,6 +29,6 @@ class CustomMemeViewController: UIViewController {
         
         // pass in the meme for editing
         memeEditor.meme = meme
-        self.presentViewController(memeEditorNavi, animated: true, completion: nil)
+        presentViewController(memeEditorNavi, animated: true, completion: nil)
     }
 }

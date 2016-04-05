@@ -46,9 +46,9 @@ class SentMemesTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let customMeme = self.storyboard!.instantiateViewControllerWithIdentifier("CustomMemeViewController") as! CustomMemeViewController
+        let customMeme = storyboard!.instantiateViewControllerWithIdentifier("CustomMemeViewController") as! CustomMemeViewController
         customMeme.meme = memes[indexPath.row]
-        self.navigationController!.pushViewController(customMeme, animated: true)
+        navigationController!.pushViewController(customMeme, animated: true)
     }
     
     //methods to implement swipe to delete function

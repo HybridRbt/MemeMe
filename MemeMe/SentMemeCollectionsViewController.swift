@@ -19,14 +19,14 @@ class SentMemeCollectionsViewController: UICollectionViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.collectionView!.reloadData()
+        collectionView!.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let space: CGFloat = 3.0
-        let dimension = (self.view.frame.size.width - (2 * space)) / 3.0
+        let dimension = (view.frame.size.width - (2 * space)) / 3.0
         
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
@@ -48,9 +48,9 @@ class SentMemeCollectionsViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let customMeme = self.storyboard!.instantiateViewControllerWithIdentifier("CustomMemeViewController") as! CustomMemeViewController
+        let customMeme = storyboard!.instantiateViewControllerWithIdentifier("CustomMemeViewController") as! CustomMemeViewController
         customMeme.meme = memes[indexPath.row]
-        self.navigationController!.pushViewController(customMeme, animated: true)
+        navigationController!.pushViewController(customMeme, animated: true)
     }
 }
 
