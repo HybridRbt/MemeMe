@@ -16,9 +16,19 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var bottomToolbar: UIToolbar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
+    var openAsEditor = false // default to open as meme creator
+    var meme = Meme(topTextString: Meme.InitialText.Top.rawValue, bottomTextString: Meme.InitialText.Bottom.rawValue, originalImage: nil, memedImage: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        resetTextFields()
+        if !openAsEditor {
+            // opened as creator
+            resetTextFields()
+        } else {
+            if meme.memedImage != nil {
+                setupMemeContents(meme)
+            }
+        }
     }
 
     //need to set to number less than 0. set to any number greater than 0 will result in a halo effect on the text
@@ -46,6 +56,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
         
         subscribeToKeyboardNotifications()
+        toggleNavbarAndToolBar(false)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -100,13 +111,23 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     func resetTextFields() {
         topTextField.defaultTextAttributes = memeTextAttributes
         topTextField.textAlignment = .Center
-        topTextField.text = Meme.InitialText.Top.rawValue
         topTextField.delegate = self
+        
+        topTextField.text = Meme.InitialText.Top.rawValue
         
         bottomTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.textAlignment = .Center
-        bottomTextField.text = Meme.InitialText.Bottom.rawValue
         bottomTextField.delegate = self
+        
+        bottomTextField.text = Meme.InitialText.Bottom.rawValue
+    }
+    
+    func setupMemeContents(meme: Meme) {
+        resetTextFields()
+    
+        topTextField.text = meme.topTextString
+        bottomTextField.text = meme.bottomTextString
+        imageView.image = meme.originalImage
     }
     
     func pickImage(source: UIImagePickerControllerSourceType) {
