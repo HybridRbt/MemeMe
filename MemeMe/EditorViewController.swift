@@ -190,6 +190,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     func generateMemedImage() -> UIImage {
+        resignFirstResponder()
         toggleNavbarAndToolBar(true)
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
