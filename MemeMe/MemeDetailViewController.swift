@@ -1,5 +1,5 @@
 //
-//  CustomMemeViewController.swift
+//  MemeDetailViewController.swift
 //  MemeMe
 //
 //  Created by Jianfeng Yang on 3/23/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomMemeViewController: UIViewController {
+class MemeDetailViewController: UIViewController {
     
     var meme: Meme!
     
