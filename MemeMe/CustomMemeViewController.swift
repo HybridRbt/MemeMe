@@ -27,7 +27,6 @@ class CustomMemeViewController: UIViewController {
         
         let memeEditorNavi = UINavigationController(rootViewController: memeEditor)
         
-        memeEditor.openAsEditor = true
         memeEditor.meme = meme
         self.presentViewController(memeEditorNavi, animated: true, completion: nil)
         

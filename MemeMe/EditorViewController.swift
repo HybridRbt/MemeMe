@@ -16,18 +16,15 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var bottomToolbar: UIToolbar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
-    var openAsEditor = false // default to open as meme creator
     var meme = Meme(topTextString: Meme.InitialText.Top.rawValue, bottomTextString: Meme.InitialText.Bottom.rawValue, originalImage: nil, memedImage: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if !openAsEditor {
-            // opened as creator
-            resetTextFields()
-        } else {
-            if meme.memedImage != nil {
-                setupMemeContents(meme)
-            }
+        resetTextFields()
+        
+        // opened as editor
+        if meme.memedImage != nil {
+            setupMemeContents(meme)
         }
     }
 
