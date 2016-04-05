@@ -61,11 +61,6 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         unsubscribeToKeyboardNotifications()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func pickFromAlbum(sender: AnyObject) {
         let source = UIImagePickerControllerSourceType.PhotoLibrary
         pickImage(source)
