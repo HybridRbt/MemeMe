@@ -15,14 +15,6 @@ class SentMemesTableViewController: UITableViewController {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
     
-//    @IBAction func addButtonTapped(sender: AnyObject) {
-//        var memeEditor: EditorViewController
-//        
-//        memeEditor = storyboard?.instantiateViewControllerWithIdentifier("EditorViewController") as! EditorViewController
-//        
-//        presentViewController(memeEditor, animated: true, completion: nil)
-//    }
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
